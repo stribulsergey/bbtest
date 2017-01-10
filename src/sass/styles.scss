@@ -1,0 +1,121 @@
+$border-grey-color: #ccc;
+$border-blue-color: #77ACDD;
+$background-blue-color: #CFE2F3;
+$marker-border-color: #A2C7E8;
+$background-active-color: #9FC5E8;
+$white: #ffffff;
+
+$border-blue: 1px solid $border-blue-color;
+$border-grey: 1px solid $border-grey-color;
+
+body {
+  display: flex;
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  #application {
+    display: flex;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    margin: auto;
+
+    .active {
+      background-color: $background-active-color;
+    }
+
+    .sidebar {
+      border: $border-grey;
+      width: 150px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        border: $border-blue;
+
+        li {
+          font-size: 18px;
+          padding: 3px 10px;
+          list-style-type: none;
+          border: 1px solid $border-blue-color;
+        }
+      }
+    }
+
+    .content {
+      border: $border-grey;
+      width: 600px;
+
+      .tab-list {
+        display: flex;
+
+        div {
+          font-size: 18px;
+          border: 1px solid $border-blue-color;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          border-bottom: none;
+          padding: 3px 20px;
+        }
+      }
+
+      .accordion {
+        border: 1px solid $border-blue-color;
+
+        .accordion-header {
+          padding: 3px 10px;
+          font-size: 18px;
+          border-bottom: $border-blue;
+          background-color: $background-blue-color;
+
+          .marker {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            position: relative;
+            float: right;
+            border-width: 0 10px 17.3px 10px;
+            border-color: transparent transparent $marker-border-color transparent;
+
+            div {
+              width: 0;
+              height: 0;
+              border-style: solid;
+              position: absolute;
+              border-width: 0 6px 10.4px 6px;
+              border-color: transparent transparent $background-blue-color transparent;
+              top: 4.5px;
+              left: -6px;
+            }
+          }
+
+          &.collapsed {
+            background-color: $white;
+
+            .marker {
+              border-width: 17.3px 10px 0 10px;
+              border-color: $marker-border-color transparent transparent transparent;
+
+              div {
+                top: -14px;
+                left: -6px;
+                border-width: 10.4px 6px 0 6px;
+                border-color: $background-blue-color transparent transparent transparent;
+              }
+            }
+
+            + .accordion-content {
+              display: none;
+            }
+          }
+        }
+        .accordion-content {
+          display: block;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}

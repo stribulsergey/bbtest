@@ -1,0 +1,14 @@
+{
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "extends": "plugin:backbone/recommended",
+    "plugins": ["backbone"],
+    "rules": {
+        "indent": ["error", 4],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "prefer-const": ["error"]
+    }
+}
